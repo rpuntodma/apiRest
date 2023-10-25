@@ -1,0 +1,63 @@
+Tutorial seguido:
+https://blog.codemagic.io/rest-api-in-flutter/
+
+Step 0
+------
+Crear un proyecto flutter. Y Borrar el contenido del main.dart
+
+Step 1
+------
+no hay que hacer nada, solo saber el link de tu API
+si usas la del ejemplo es:
+http://jsonplaceholder.typicode.com/users
+
+Step 2
+------
+añadir la dependencia http al archivo pubspec.yaml
+en el tutorial no viene, pero hay que upgradear las dependencias, es decir, en flutter, abrir la pestaña terminal y ejecutar el comando (despues de modificar el archivo):
+    flutter pub get
+luego el comando
+    flutter pub upgrade --major-versions
+(es posible que estos comandos de ejecuten automaticamente la primera vez que ejecutemos la app, pero en mi pc no se hacia.)
+
+Step 3
+------
+Click derecho en la carpeta lib del proyecto->new->fileDart
+copia y pega de la clase con las constantes.
+
+Step 4
+------
+En la pagina
+    https://app.quicktype.io/
+copiar y pegar el JSON
+y te crea el modelo.
+    el JSON del ejemplo esta en el archivo JSON.txt
+    el modelo del ejemplo esta en el archivo UsersModel.dart
+
+Step 5
+------
+A la hora de crear este archivo dart, copiar y pegar teniendo en cuenta varios aspectos:
+    -Los imports de constantes y usersModel deben tener el nombre de vuestra app y de sus respectivas clases.
+    -El tipo de la lista debe llamarse igual a la clase UsersModel.dart
+    -La funcion userModelFromJson debe coincidir con la funcion propia que hay en la clase UsersModel
+
+    dejo aqui mi clase ApiService.dart
+
+Step 6
+------
+Copiar y pegar en el main.dart
+Hay que tener cuidado de nuevo con el nombre de las clases y de los imports
+
+Tambien falta este trozo de codigo para que se pueda lanzar:
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Home(),
+    );
+  }
+}
